@@ -1,0 +1,79 @@
+name: Deploy
+
+# Tests run on every push and PR. Deployment runs only on main, from the
+# canonical repo, and deploys the receiver and the simulator as two separate
+# Workers — deliberately, so the receiver can be pointed at real CaTH without
+# the simulator anywhere near it.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  deploy-receiver:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' && github.repository == 'Data-Torturing-Solutions/cath-mock-api'
+    environment: production
+    concurrency: deploy-receiver
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      # Apply D1 migrations before the code that depends on them.
+      # Requires the real database_id in wrangler.receiver.toml (see README → Deploying).
+      - name: Apply D1 migrations
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 migrations apply cath-db --remote -c wrangler.receiver.toml
+
+      - name: Deploy receiver
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy -c wrangler.receiver.toml
+      # Worker secrets are never set here. Set them once, out of band:
+      #   wrangler secret put CATH_CLIENT_SECRET -c wrangler.receiver.toml
+      #   wrangler secret put JWT_SIGNING_KEY    -c wrangler.receiver.toml
+      #   wrangler secret put ADMIN_TOKEN        -c wrangler.receiver.toml
+
+  deploy-simulator:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' && github.repository == 'Data-Torturing-Solutions/cath-mock-api'
+    environment: production
+    concurrency: deploy-simulator
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Deploy simulator
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy -c wrangler.simulator.toml

@@ -1,0 +1,15 @@
+# Local development secrets. Copy to `.dev.vars` (gitignored) and change the
+# values. Production secrets go in via `wrangler secret put` and never live in
+# a file.
+#
+# Both Workers read this file when run with `wrangler dev`.
+
+# --- receiver ---
+CATH_CLIENT_SECRET="local-dev-client-secret"
+JWT_SIGNING_KEY="local-dev-signing-key-change-me"
+ADMIN_TOKEN="local-dev-admin-token"
+
+# --- simulator ---
+# Must match CATH_CLIENT_SECRET above for the simulator to authenticate.
+CLIENT_SECRET="local-dev-client-secret"
+SIM_ADMIN_TOKEN="local-dev-admin-token"

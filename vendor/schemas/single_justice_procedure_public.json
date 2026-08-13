@@ -1,0 +1,260 @@
+{
+  "$defs": {
+    "address": {
+      "title": "Address Details",
+      "type": "object",
+      "properties": {
+        "postCode": {
+          "title": "Address Postcode",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "M22",
+            "PR1",
+            "EC1A"
+          ],
+          "pattern": "^([A-Za-z]{2}|[A-Za-z][0-9])$"
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Root",
+  "type": "object",
+  "required": ["document", "courtLists"],
+  "properties": {
+    "document": {
+      "title": "document",
+      "type": "object",
+      "required": ["publicationDate"],
+      "properties": {
+        "documentName": {
+          "description": "Defined for the title of a publications",
+          "title": "Document Name",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Standard List FINAL V4"
+          ],
+          "pattern": "^(?!(.|\\r|\\n)*<[^>]+>)(.|\\r|\\n)*$"
+        },
+        "publicationDate": {
+          "title": "Publication date",
+          "description": "The date + time the list was published",
+          "type": "string",
+          "examples": [
+            "2016-09-13T23:30:52.123Z"
+          ],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}([.]\\d{1,9})?Z$"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "1.0"
+          ],
+          "pattern": "^(?!(.|\\r|\\n)*<[^>]+>)(.|\\r|\\n)*$"
+        }
+      }
+    },
+    "courtLists": {
+      "title": "Court Lists",
+      "type": "array",
+      "items": {
+        "title": "Court list",
+        "type": "object",
+        "required": ["courtHouse"],
+        "properties": {
+          "courtHouse": {
+            "title": "Court House",
+            "description": "The court house that owns the court rooms",
+            "type": "object",
+            "required": ["courtRoom"],
+            "properties": {
+              "courtRoom": {
+                "type": "array",
+                "items": {
+                  "title": "Court Room",
+                  "description": "The court room that owns the court rooms",
+                  "type": "object",
+                  "required": ["session"],
+                  "properties": {
+                    "session": {
+                      "type": "array",
+                      "items": {
+                        "title": "Session",
+                        "description": "Session associated with the court in the publication",
+                        "type": "object",
+                        "required": ["sittings"],
+                        "properties": {
+                          "sittings": {
+                            "title": "Sittings",
+                            "type": "array",
+                            "default": [],
+                            "items": {
+                              "type": "object",
+                              "required": ["hearing"],
+                              "properties": {
+                                "hearing": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "description": "Hearing details of the case and associated details for the sitting",
+                                    "title": "Hearing",
+                                    "required": [
+                                      "party",
+                                      "offence"
+                                    ],
+                                    "properties": {
+                                      "party": {
+                                        "title": "Party",
+                                        "description": "Parties involved in the case (defence, prosecution)",
+                                        "type": "array",
+                                        "contains": {
+                                          "type": "object"
+                                        },
+                                        "minContains": 1,
+                                        "items": {
+                                          "title": "Party",
+                                          "description": "A party",
+                                          "type": "object",
+                                          "required": ["partyRole"],
+                                          "properties": {
+                                            "partyRole": {
+                                              "description": "Role of the party, selectable list of roles, i.e. prosecution, solicitor defence etc",
+                                              "title": "Party Role",
+                                              "type": "string",
+                                              "examples": [
+                                                "ACCUSED",
+                                                "PROSECUTOR"
+                                              ],
+                                              "default": "",
+                                              "pattern": "^(?!(.|\\r|\\n)*<[^>]+>)(.|\\r|\\n)*$"
+                                            },
+                                            "individualDetails": {
+                                              "title": "Individual Details",
+                                              "description": "Individual Details",
+                                              "type": "object",
+                                              "properties": {
+                                                "individualForenames": {
+                                                  "description": "Forename of party",
+                                                  "title": "Individual Forenames",
+                                                  "type": "string",
+                                                  "examples": [
+                                                    "A"
+                                                  ],
+                                                  "default": "",
+                                                  "pattern": "^.?$"
+                                                },
+                                                "individualSurname": {
+                                                  "description": "Surname of party",
+                                                  "title": "Individual Surname",
+                                                  "type": "string",
+                                                  "examples": [
+                                                    "Surname"
+                                                  ],
+                                                  "default": "",
+                                                  "pattern": "^(?!(.|\\r|\\n)*<[^>]+>)(.|\\r|\\n)*$"
+                                                },
+                                                "address": {
+                                                  "title": "Address",
+                                                  "description": "Party Address",
+                                                  "$ref": "#/$defs/address"
+                                                }
+                                              }
+                                            },
+                                            "organisationDetails": {
+                                              "title": "Organisation Details",
+                                              "description": "Organisation Details",
+                                              "type": "object",
+                                              "required": [
+                                                "organisationName"
+                                              ],
+                                              "properties": {
+                                                "organisationName": {
+                                                  "description": "Party name of organisation",
+                                                  "title": "Organisation Name",
+                                                  "type": "string",
+                                                  "examples": [
+                                                    "A & B Solicitors"
+                                                  ],
+                                                  "default": "",
+                                                  "pattern": "^(?!(.|\\r|\\n)*<[^>]+>)(.|\\r|\\n)*$"
+                                                },
+                                                "organisationAddress": {
+                                                  "title": "Organisation Address",
+                                                  "description": "Party Address",
+                                                  "$ref": "#/$defs/address"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "allOf": [{
+                                            "if": {
+                                              "properties":
+                                              {
+                                                "partyRole":
+                                                {
+                                                  "type": "string",
+                                                  "const": "ACCUSED"
+                                                }
+                                              }
+                                            },
+                                            "then": {
+                                              "anyOf": [
+                                                {
+                                                  "required": ["individualDetails"]
+                                                },
+                                                {
+                                                  "required": ["organisationDetails"]
+                                                }
+                                              ]
+                                            },
+                                            "else": {
+                                              "required": ["organisationDetails"]
+                                            }}]
+                                        }
+                                      },
+                                      "offence": {
+                                        "title": "offence",
+                                        "description": "The offence and details of offences associated with the case",
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "required": [
+                                            "offenceTitle"
+                                          ],
+                                          "properties": {
+                                            "offenceTitle": {
+                                              "description": "Short description of offence",
+                                              "title": "Offence title",
+                                              "type": "string",
+                                              "default": "",
+                                              "examples": [
+                                                "drink driving"
+                                              ],
+                                              "pattern": "^(?!(.|\\r|\\n)*<[^>]+>)(.|\\r|\\n)*$"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

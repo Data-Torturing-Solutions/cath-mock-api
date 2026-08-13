@@ -1,0 +1,55 @@
+#:schema node_modules/wrangler/config-schema.json
+#
+# cath-receiver -- the endpoints HMCTS push to. This is the onboarding
+# deliverable; keep the simulator well away from it (see wrangler.simulator.toml).
+#
+#   wrangler deploy -c wrangler.receiver.toml
+
+name = "cath-receiver"
+main = "src/receiver/index.ts"
+compatibility_date = "2026-08-01"
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cath-db"
+# Replace after `wrangler d1 create cath-db`. Local dev and tests ignore it.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "ARTEFACTS"
+bucket_name = "cath-artefacts"
+
+[vars]
+# off | optional | required. Anything else -- including a typo -- is treated as
+# `required`, so a misspelling cannot silently open the API.
+AUTH_MODE = "optional"
+
+# strict = 4xx on invalid metadata (matches the conformance suite).
+# lenient = accept with a 200 and quarantine, so nothing is ever dropped.
+VALIDATION_MODE = "strict"
+
+# The BaseURL you hand HMCTS is this Worker's origin plus BASE_PATH.
+BASE_PATH = "/publications"
+
+OAUTH_SCOPE = "cath.publish"
+JWT_ISSUER = "https://cath.opencourtdata.uk"
+JWT_AUDIENCE = "cath-receiver"
+TOKEN_TTL_SECONDS = "3600"
+CATH_CLIENT_ID = "hmcts-cath"
+
+# Secrets, never here:
+#   wrangler secret put CATH_CLIENT_SECRET -c wrangler.receiver.toml
+#   wrangler secret put JWT_SIGNING_KEY    -c wrangler.receiver.toml
+#   wrangler secret put ADMIN_TOKEN        -c wrangler.receiver.toml
+
+[triggers]
+# Expiry is never notified by CaTH, so we age content out ourselves.
+crons = ["7 * * * *"]
+
+# [[routes]]
+# pattern = "cath.opencourtdata.uk/*"
+# zone_name = "opencourtdata.uk"

@@ -1,0 +1,47 @@
+#:schema node_modules/wrangler/config-schema.json
+#
+# cath-simulator -- a fake CaTH that pushes publications at the receiver.
+#
+# Deployed separately and deliberately: the receiver must be pointable at the
+# real CaTH without the simulator anywhere near it.
+#
+#   wrangler deploy -c wrangler.simulator.toml
+
+name = "cath-simulator"
+main = "src/simulator/index.ts"
+compatibility_date = "2026-08-01"
+
+[observability]
+enabled = true
+
+[vars]
+# Where to push. Include the BaseURL path.
+RECEIVER_URL = "http://localhost:8787/publications"
+
+# Fetched from the receiver's token endpoint when CLIENT_SECRET is set.
+TOKEN_URL = "http://localhost:8787/oauth/token"
+CLIENT_ID = "hmcts-cath"
+OAUTH_SCOPE = "cath.publish"
+
+# Publications per daily run.
+DAILY_VOLUME = "40"
+
+# 0 disables chaos. At 0.05, roughly one push in twenty is deliberately
+# malformed -- see src/simulator/chaos.ts for what that means.
+CHAOS_RATE = "0.05"
+
+# CaTH retries three more times after any non-2xx. The simulator does the same,
+# so idempotency is provable rather than assumed.
+RETRY_COUNT = "3"
+
+# Secrets:
+#   wrangler secret put CLIENT_SECRET   -c wrangler.simulator.toml
+#   wrangler secret put SIM_ADMIN_TOKEN -c wrangler.simulator.toml
+
+[triggers]
+crons = [
+  # Daily push, and the 1AM UTC release of future-dated publications.
+  "0 1 * * *",
+  # Supersedes and deletions through the day, as CaTH does.
+  "0 9,13,16 * * *",
+]

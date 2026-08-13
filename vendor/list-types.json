@@ -1,0 +1,414 @@
+{
+  "source": "https://github.com/hmcts/pip-data-models/blob/master/src/main/java/uk/gov/hmcts/reform/pip/model/publication/ListType.java",
+  "count": 102,
+  "listTypes": [
+    {
+      "name": "SJP_PUBLIC_LIST",
+      "friendlyName": "SJP Public List (Full list)"
+    },
+    {
+      "name": "SJP_DELTA_PUBLIC_LIST",
+      "friendlyName": "SJP Public List (New cases)"
+    },
+    {
+      "name": "SJP_PRESS_LIST",
+      "friendlyName": "SJP Press List (Full list)"
+    },
+    {
+      "name": "SJP_DELTA_PRESS_LIST",
+      "friendlyName": "SJP Press List (New cases)"
+    },
+    {
+      "name": "SJP_PRESS_REGISTER",
+      "friendlyName": "SJP Press Register"
+    },
+    {
+      "name": "CROWN_DAILY_LIST",
+      "friendlyName": "Crown Daily List"
+    },
+    {
+      "name": "CROWN_FIRM_LIST",
+      "friendlyName": "Crown Firm List"
+    },
+    {
+      "name": "CROWN_WARNED_LIST",
+      "friendlyName": "Crown Warned List"
+    },
+    {
+      "name": "MAGISTRATES_PUBLIC_LIST",
+      "friendlyName": "Magistrates Public List"
+    },
+    {
+      "name": "MAGISTRATES_STANDARD_LIST",
+      "friendlyName": "Magistrates Standard List"
+    },
+    {
+      "name": "CIVIL_DAILY_CAUSE_LIST",
+      "friendlyName": "Civil Daily Cause List"
+    },
+    {
+      "name": "FAMILY_DAILY_CAUSE_LIST",
+      "friendlyName": "Family Daily Cause List"
+    },
+    {
+      "name": "CIVIL_AND_FAMILY_DAILY_CAUSE_LIST",
+      "friendlyName": "Civil And Family Daily Cause List"
+    },
+    {
+      "name": "COP_DAILY_CAUSE_LIST",
+      "friendlyName": "COP Daily Cause List"
+    },
+    {
+      "name": "ET_FORTNIGHTLY_PRESS_LIST",
+      "friendlyName": "ET Fortnightly Press List"
+    },
+    {
+      "name": "ET_DAILY_LIST",
+      "friendlyName": "ET Daily List"
+    },
+    {
+      "name": "SSCS_DAILY_LIST",
+      "friendlyName": "SSCS Daily List"
+    },
+    {
+      "name": "SSCS_DAILY_LIST_ADDITIONAL_HEARINGS",
+      "friendlyName": "SSCS Daily List - Additional Hearings"
+    },
+    {
+      "name": "IAC_DAILY_LIST",
+      "friendlyName": "IAC Daily List"
+    },
+    {
+      "name": "IAC_DAILY_LIST_ADDITIONAL_CASES",
+      "friendlyName": "IAC Daily List - Additional Cases"
+    },
+    {
+      "name": "CARE_STANDARDS_LIST",
+      "friendlyName": "Care Standards List"
+    },
+    {
+      "name": "PRIMARY_HEALTH_LIST",
+      "friendlyName": "Primary Health List"
+    },
+    {
+      "name": "CIC_DAILY_HEARING_LIST",
+      "friendlyName": "CIC Daily Hearing List"
+    },
+    {
+      "name": "CST_WEEKLY_HEARING_LIST",
+      "friendlyName": "CST Weekly Hearing List"
+    },
+    {
+      "name": "PHT_WEEKLY_HEARING_LIST",
+      "friendlyName": "PHT Weekly Hearing List"
+    },
+    {
+      "name": "GRC_WEEKLY_HEARING_LIST",
+      "friendlyName": "GRC Weekly Hearing List"
+    },
+    {
+      "name": "WPAFCC_WEEKLY_HEARING_LIST",
+      "friendlyName": "WPAFCC Weekly Hearing List"
+    },
+    {
+      "name": "UT_IAC_JR_LONDON_DAILY_HEARING_LIST",
+      "friendlyName": "Upper Tribunal (Immigration and Asylum) Chamber - Judicial Review: London Daily Hearing List"
+    },
+    {
+      "name": "UT_IAC_JR_LEEDS_DAILY_HEARING_LIST",
+      "friendlyName": "Upper Tribunal (Immigration and Asylum) Chamber - Judicial Review: Leeds Daily Hearing List"
+    },
+    {
+      "name": "UT_IAC_JR_MANCHESTER_DAILY_HEARING_LIST",
+      "friendlyName": "Upper Tribunal (Immigration and Asylum) Chamber - Judicial Review: Manchester Daily Hearing List"
+    },
+    {
+      "name": "UT_IAC_JR_BIRMINGHAM_DAILY_HEARING_LIST",
+      "friendlyName": "Upper Tribunal (Immigration and Asylum) Chamber - Judicial Review: Birmingham Daily Hearing List"
+    },
+    {
+      "name": "UT_IAC_JR_CARDIFF_DAILY_HEARING_LIST",
+      "friendlyName": "Upper Tribunal (Immigration and Asylum) Chamber - Judicial Review: Bristol and Cardiff Daily Hearing List"
+    },
+    {
+      "name": "UT_IAC_STATUTORY_APPEALS_DAILY_HEARING_LIST",
+      "friendlyName": "UT IAC Statutory Appeals Daily Hearing List"
+    },
+    {
+      "name": "SIAC_WEEKLY_HEARING_LIST",
+      "friendlyName": "Special Immigration Appeals Commission Weekly Hearing List"
+    },
+    {
+      "name": "POAC_WEEKLY_HEARING_LIST",
+      "friendlyName": "Proscribed Organisations Appeal Commission Weekly Hearing List"
+    },
+    {
+      "name": "PAAC_WEEKLY_HEARING_LIST",
+      "friendlyName": "Pathogens Access Appeal Commission Weekly Hearing List"
+    },
+    {
+      "name": "FTT_TAX_WEEKLY_HEARING_LIST",
+      "friendlyName": "FTT Tax Weekly Hearing List"
+    },
+    {
+      "name": "FTT_LR_WEEKLY_HEARING_LIST",
+      "friendlyName": "FTT Lr Weekly Hearing List"
+    },
+    {
+      "name": "UT_T_AND_CC_DAILY_HEARING_LIST",
+      "friendlyName": "UT T And Cc Daily Hearing List"
+    },
+    {
+      "name": "UT_LC_DAILY_HEARING_LIST",
+      "friendlyName": "UT Lc Daily Hearing List"
+    },
+    {
+      "name": "UT_AAC_DAILY_HEARING_LIST",
+      "friendlyName": "UT Aac Daily Hearing List"
+    },
+    {
+      "name": "RPT_LONDON_WEEKLY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Residential Property Tribunal): London region Weekly Hearing List"
+    },
+    {
+      "name": "RPT_EASTERN_WEEKLY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Residential Property Tribunal): Eastern "
+    },
+    {
+      "name": "RPT_MIDLANDS_WEEKLY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Residential Property Tribunal): Midlands region "
+    },
+    {
+      "name": "RPT_NORTHERN_WEEKLY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Residential Property Tribunal): Northern region "
+    },
+    {
+      "name": "RPT_SOUTHERN_WEEKLY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Residential Property Tribunal): "
+    },
+    {
+      "name": "FTT_RPT_MARKET_RENTS_WEEKLY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Residential Property Tribunal): Market Rents "
+    },
+    {
+      "name": "AST_DAILY_HEARING_LIST",
+      "friendlyName": "AST Daily Hearing List"
+    },
+    {
+      "name": "SSCS_MIDLANDS_DAILY_HEARING_LIST",
+      "friendlyName": "Midlands Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "SSCS_SOUTH_EAST_DAILY_HEARING_LIST",
+      "friendlyName": "South East Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "SSCS_WALES_AND_SOUTH_WEST_DAILY_HEARING_LIST",
+      "friendlyName": "Wales and South West Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "SSCS_SCOTLAND_DAILY_HEARING_LIST",
+      "friendlyName": "Scotland Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "SSCS_NORTH_EAST_DAILY_HEARING_LIST",
+      "friendlyName": "North East Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "SSCS_NORTH_WEST_DAILY_HEARING_LIST",
+      "friendlyName": "North West Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "SSCS_LONDON_DAILY_HEARING_LIST",
+      "friendlyName": "London Social Security and Child Support Tribunal Daily Hearing List"
+    },
+    {
+      "name": "MENTAL_HEALTH_TRIBUNAL_HEARING_LIST",
+      "friendlyName": "Mental Health Tribunal Daily Hearing List"
+    },
+    {
+      "name": "LONDON_ADMINISTRATIVE_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "London Administrative Court Daily Cause List"
+    },
+    {
+      "name": "COUNTY_COURT_LONDON_CIVIL_DAILY_CAUSE_LIST",
+      "friendlyName": "County Court at Central London Civil Daily Cause List"
+    },
+    {
+      "name": "CIVIL_COURTS_RCJ_DAILY_CAUSE_LIST",
+      "friendlyName": "Civil Courts at the RCJ Daily Cause List"
+    },
+    {
+      "name": "COURT_OF_APPEAL_CRIMINAL_DAILY_CAUSE_LIST",
+      "friendlyName": "Court of Appeal (Criminal Division) Daily Cause List"
+    },
+    {
+      "name": "FAMILY_DIVISION_HIGH_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Family Division of the High Court Daily Cause List"
+    },
+    {
+      "name": "KINGS_BENCH_DIVISION_DAILY_CAUSE_LIST",
+      "friendlyName": "King’s Bench Division Daily Cause List"
+    },
+    {
+      "name": "KINGS_BENCH_MASTERS_DAILY_CAUSE_LIST",
+      "friendlyName": "King’s Bench Masters Daily Cause List"
+    },
+    {
+      "name": "SENIOR_COURTS_COSTS_OFFICE_DAILY_CAUSE_LIST",
+      "friendlyName": "Senior Courts Costs Office Daily Cause List"
+    },
+    {
+      "name": "MAYOR_AND_CITY_CIVIL_DAILY_CAUSE_LIST",
+      "friendlyName": "Mayor & City Civil Daily Cause List"
+    },
+    {
+      "name": "INTERIM_APPLICATIONS_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Interim Applications List (ChD) Daily Cause List"
+    },
+    {
+      "name": "INTELLECTUAL_PROPERTY_AND_ENTERPRISE_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Intellectual Property and Enterprise Court (ChD) Daily Cause List"
+    },
+    {
+      "name": "INTELLECTUAL_PROPERTY_LIST_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Intellectual Property List (ChD) Daily Cause List"
+    },
+    {
+      "name": "LONDON_CIRCUIT_COMMERCIAL_COURT_KB_DAILY_CAUSE_LIST",
+      "friendlyName": "London Circuit Commercial Court (KB) Daily Cause List"
+    },
+    {
+      "name": "PATENTS_COURT_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Patents Court (ChD) Daily Cause List"
+    },
+    {
+      "name": "PENSIONS_LIST_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Pensions List (ChD) Daily Cause List"
+    },
+    {
+      "name": "PROPERTY_TRUSTS_PROBATE_LIST_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Property, Trusts and Probate List (ChD) Daily Cause List"
+    },
+    {
+      "name": "REVENUE_LIST_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Revenue List (ChD) Daily Cause List"
+    },
+    {
+      "name": "TECHNOLOGY_AND_CONSTRUCTION_COURT_KB_DAILY_CAUSE_LIST",
+      "friendlyName": "Technology and Construction Court (KB) Daily Cause List"
+    },
+    {
+      "name": "ADMIRALTY_COURT_KB_DAILY_CAUSE_LIST",
+      "friendlyName": "Admiralty Court (KB) Daily Cause List"
+    },
+    {
+      "name": "BUSINESS_LIST_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Business List (ChD) Daily Cause List"
+    },
+    {
+      "name": "CHANCERY_APPEALS_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Chancery Appeals (ChD) Daily Cause List"
+    },
+    {
+      "name": "COMMERCIAL_COURT_KB_DAILY_CAUSE_LIST",
+      "friendlyName": "Commercial Court (KB) Daily Cause List"
+    },
+    {
+      "name": "COMPANIES_WINDING_UP_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Companies Winding Up (ChD) Daily Cause List"
+    },
+    {
+      "name": "COMPETITION_LIST_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Competition List (ChD) Daily Cause List"
+    },
+    {
+      "name": "FINANCIAL_LIST_CHD_KB_DAILY_CAUSE_LIST",
+      "friendlyName": "Financial List (ChD/KB) Daily Cause List"
+    },
+    {
+      "name": "INSOLVENCY_AND_COMPANIES_COURT_CHD_DAILY_CAUSE_LIST",
+      "friendlyName": "Insolvency & Companies Court (ChD) Daily Cause List"
+    },
+    {
+      "name": "COURT_OF_APPEAL_CIVIL_DAILY_CAUSE_LIST",
+      "friendlyName": "Court of Appeal (Civil Division) Daily Cause List"
+    },
+    {
+      "name": "BIRMINGHAM_ADMINISTRATIVE_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Birmingham Administrative Court Daily Cause List"
+    },
+    {
+      "name": "BRISTOL_AND_CARDIFF_ADMINISTRATIVE_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Bristol and Cardiff Administrative Court Daily Cause List"
+    },
+    {
+      "name": "MANCHESTER_ADMINISTRATIVE_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Manchester Administrative Court Daily Cause List"
+    },
+    {
+      "name": "LEEDS_ADMINISTRATIVE_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Leeds Administrative Court Daily Cause List"
+    },
+    {
+      "name": "PCOL_DAILY_CAUSE_LIST",
+      "friendlyName": "Pcol Daily Cause List"
+    },
+    {
+      "name": "SEND_DAILY_HEARING_LIST",
+      "friendlyName": "First-tier Tribunal (Special Educational Needs and Disability) Daily Hearing List"
+    },
+    {
+      "name": "CIC_WEEKLY_HEARING_LIST",
+      "friendlyName": "CIC Weekly Hearing List"
+    },
+    {
+      "name": "MAGISTRATES_ADULT_COURT_LIST_DAILY",
+      "friendlyName": "Magistrates Adult Court List - Daily"
+    },
+    {
+      "name": "MAGISTRATES_ADULT_COURT_LIST_FUTURE",
+      "friendlyName": "Magistrates Adult Court List - Future"
+    },
+    {
+      "name": "MAGISTRATES_PUBLIC_ADULT_COURT_LIST_DAILY",
+      "friendlyName": "Magistrates Public Adult Court List - Daily"
+    },
+    {
+      "name": "MAGISTRATES_PUBLIC_ADULT_COURT_LIST_FUTURE",
+      "friendlyName": "Magistrates Public Adult Court List - Future"
+    },
+    {
+      "name": "CROWN_DAILY_PDDA_LIST",
+      "friendlyName": "Crown Daily List"
+    },
+    {
+      "name": "CROWN_FIRM_PDDA_LIST",
+      "friendlyName": "Crown Firm List"
+    },
+    {
+      "name": "CROWN_WARNED_PDDA_LIST",
+      "friendlyName": "Crown Warned List"
+    },
+    {
+      "name": "HIGH_COURT_CIVIL_DAILY_CAUSE_LIST",
+      "friendlyName": "High Court Civil Daily Cause List"
+    },
+    {
+      "name": "HIGH_COURT_FAMILY_DAILY_CAUSE_LIST",
+      "friendlyName": "High Court Family Daily Cause List"
+    },
+    {
+      "name": "BUSINESS_AND_PROPERTY_DAILY_CAUSE_LIST",
+      "friendlyName": "Business & Property Daily Cause List"
+    },
+    {
+      "name": "CIRCUIT_COMMERCIAL_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Circuit Commercial Court Daily Cause List"
+    },
+    {
+      "name": "TECHNOLOGY_AND_CONSTRUCTION_COURT_DAILY_CAUSE_LIST",
+      "friendlyName": "Technology and Construction Court Daily Cause List"
+    }
+  ]
+}
