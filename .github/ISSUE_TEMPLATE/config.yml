@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Portfolio task board
+    url: https://github.com/orgs/Data-Torturing-Solutions/projects/2
+    about: The cross-repo view of everything currently in flight.
