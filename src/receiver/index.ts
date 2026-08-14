@@ -343,8 +343,12 @@ export default {
       return problem(405, 'method_not_allowed', `${request.method} ${url.pathname}`);
     } catch (err) {
       // Never lose the record of a request, even one that blew up: a 500 is
-      // retried by CaTH, and we want the evidence of why.
+      // retried by CaTH, and we want the evidence of why. The real detail
+      // (including the stack, where available) is logged server-side only --
+      // it is never echoed back in the HTTP response, which could leak
+      // internal implementation details to the caller.
       const message = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+      console.error('unhandled error in receiver fetch:', err instanceof Error ? err.stack ?? message : message);
       ctx.waitUntil(
         logDelivery(env, {
           publicationId: null,
@@ -359,7 +363,7 @@ export default {
           durationMs: Date.now() - startedAt,
         }).catch(() => null),
       );
-      return problem(500, 'server_error', message);
+      return problem(500, 'server_error', 'an unexpected error occurred');
     }
   },
 

@@ -11,6 +11,12 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Least-privilege default: none of these jobs push commits, open PRs, or
+# otherwise write to the repo via GITHUB_TOKEN -- checkout is read-only and
+# the Cloudflare deploy steps authenticate with their own API token secret.
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
