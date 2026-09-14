@@ -23,7 +23,7 @@
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "typescript": "^5.9.2",
-    "vitest": "~3.2.0",
+    "vitest": "~5.0.0",
     "wrangler": "^4.28.0"
   },
   "overrides": {
